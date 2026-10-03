@@ -95,7 +95,7 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .split-word .inner { display: grid; grid-template-columns: auto 150px auto; align-items: center; gap: clamp(14px, 4vw, 70px); max-width: 100%; }
 .split-word .big { font-family: var(--display); font-size: clamp(44px, 7.5vw, 112px); line-height: .9; }
 .split-word .tiny { font-size: 8px; line-height: 1.6; letter-spacing: .04em; text-align: center; color: rgba(226,226,222,.85); }
-@media (max-width: 560px) { .split-word .inner { grid-template-columns: 1fr; justify-items: center; gap: 6px; } }
+@media (max-width: 800px) { .split-word .inner { grid-template-columns: 1fr; justify-items: center; gap: 6px; } }
 
 /* SERVICES INDEX */
 .index { background: var(--room); padding: clamp(110px, 13vw, 180px) var(--edge); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(40px, 7vw, 120px); align-items: start; }
