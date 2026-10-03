@@ -37,7 +37,7 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .photo .note { position: absolute; right: 14px; bottom: 10px; font-family: var(--serif); font-style: italic; font-size: 12px; color: rgba(226,226,222,.42); }
 
 /* HERO: one photo, the left side seen through fogged glass, the right side clear */
-.hero { --head: clamp(54px, 11.5vw, 184px); --seam: calc(50% - .22 * var(--head)); position: relative; isolation: isolate; overflow: hidden; min-height: min(92vh, 920px); display: grid; grid-template-rows: auto 1fr auto; background: var(--night) url(images/hero-library.jpg) center 42% / cover no-repeat; }
+.hero { --head: clamp(54px, 11.5vw, 184px); --seam: 50%; position: relative; isolation: isolate; overflow: hidden; min-height: min(92vh, 920px); display: grid; grid-template-rows: auto 1fr auto; background: var(--night) url(images/hero-library.jpg) center 42% / cover no-repeat; }
 .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(28,28,27,.35), rgba(28,28,27,0) 30%, rgba(28,28,27,.45)); }
 .fog { position: absolute; inset: 0 calc(100% - var(--seam)) 0 0; z-index: 0; background: rgba(106,93,82,.22); -webkit-backdrop-filter: blur(18px) saturate(.55) brightness(1.08); backdrop-filter: blur(18px) saturate(.55) brightness(1.08); border-right: 1px solid rgba(226,226,222,.16); }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .fog { background: rgba(106,93,82,.78); } }
@@ -55,7 +55,7 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .hero-kicker .cap { color: rgba(226,226,222,.75); }
 .hero-kicker .from { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(20px, 2.1vw, 28px); line-height: 1; }
 .split-head { font-family: var(--display); font-weight: 400; display: grid; font-size: var(--head); line-height: .9; letter-spacing: -.01em; }
-.split-head .word { grid-area: 1 / 1; white-space: nowrap; text-align: center; }
+.split-head .word { grid-area: 1 / 1; white-space: nowrap; text-align: center; padding-left: .44em; } /* shifts the word so the CLA|RITY gap sits on the centre seam */
 .split-head .fogged { color: rgba(226,226,222,.5); filter: blur(1.6px); clip-path: inset(-20% calc(100% - var(--seam)) -20% 0); }
 .split-head .clear { color: var(--cream); clip-path: inset(-20% 0 -20% var(--seam)); }
 .hero-foot { padding: 0 var(--edge) 56px; display: grid; gap: 22px; justify-items: start; max-width: calc(var(--seam) + 2vw); }
