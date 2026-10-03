@@ -144,32 +144,28 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .roles p { font-size: 13px; color: var(--dust); line-height: 1.7; }
 
 /* TESTIMONIALS */
-.kind { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); background: var(--room); position: relative; overflow: hidden; }
-@media (max-width: 860px) { .kind { grid-template-columns: 1fr; } }
-.kind .photo { min-height: 600px; background-image: linear-gradient(rgba(28,28,27,.15), rgba(28,28,27,.35)), url(images/kind-walnut.jpg); }
-@media (max-width: 860px) { .kind .photo { min-height: 380px; } }
-.kind .vert { position: absolute; left: 50%; top: 50%; transform: translate(-100%, -50%) rotate(180deg); writing-mode: vertical-rl; font-family: var(--display); font-size: clamp(44px, 5vw, 72px); line-height: .85; color: rgba(226,226,222,.26); pointer-events: none; }
-@media (max-width: 860px) { .kind .vert { left: auto; right: 8px; top: 190px; transform: translateY(-50%) rotate(180deg); } }
-.kind .text { padding: clamp(80px, 9vw, 130px) var(--edge); display: grid; gap: 30px; align-content: center; }
+.kind { background: var(--greige); color: var(--greige-ink); }
+.kind .text { max-width: 860px; margin: 0 auto; padding: clamp(80px, 10vw, 140px) var(--edge); display: grid; gap: 34px; justify-items: center; text-align: center; }
+.kind .text > .cap { color: rgba(28,28,27,.6); }
 .reviews { display: grid; gap: 70px; }
-.review { margin: 0; display: grid; gap: 26px; align-content: center; }
-.kind blockquote { font-size: clamp(22px, 2.1vw, 28px); line-height: 1.3; max-width: 24ch; }
-.kind .text p { color: var(--dust); max-width: 28rem; font-size: 13px; }
+.review { margin: 0; display: grid; gap: 26px; align-content: center; justify-items: center; }
+.kind blockquote { font-size: clamp(26px, 3vw, 40px); line-height: 1.2; max-width: 24ch; margin-inline: auto; }
+.kind .text p { color: rgba(28,28,27,.75); max-width: 36rem; margin-inline: auto; font-size: 14px; }
 .review figcaption { display: grid; gap: 4px; }
-.kind .sig { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--cream); }
-.review figcaption .cap { font-size: 8.5px; color: var(--dust); }
+.kind .sig { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--greige-ink); }
+.review figcaption .cap { font-size: 8.5px; color: rgba(28,28,27,.6); }
 /* Slider (testimonials.js): reviews share one cell and cross-fade */
 .reviews.is-slider .review { grid-area: 1 / 1; opacity: 0; visibility: hidden; transform: translateY(14px); transition: opacity .6s ease, transform .7s cubic-bezier(.2,.7,.2,1), visibility 0s .6s; }
 .reviews.is-slider .review.is-on { opacity: 1; visibility: visible; transform: none; transition: opacity .6s ease .15s, transform .7s cubic-bezier(.2,.7,.2,1) .15s, visibility 0s; }
-.review-nav { display: flex; align-items: center; gap: 18px; max-width: 28rem; margin-top: 14px; }
-.review-nav button { display: grid; place-items: center; width: 34px; height: 34px; padding: 0; background: none; border: 0; color: var(--greige); cursor: pointer; }
+.review-nav { display: flex; align-items: center; gap: 18px; width: min(100%, 28rem); margin-top: 6px; }
+.review-nav button { display: grid; place-items: center; width: 34px; height: 34px; padding: 0; background: none; border: 0; color: var(--greige-ink); cursor: pointer; }
 .review-nav svg { width: 26px; height: 10px; transition: transform .3s ease; }
 .review-nav .prev svg { transform: scaleX(-1); }
 .review-nav .next:hover svg, .review-nav .next:focus-visible svg { transform: translateX(5px); }
 .review-nav .prev:hover svg, .review-nav .prev:focus-visible svg { transform: scaleX(-1) translateX(5px); }
-.review-nav button:focus-visible { outline: 1px solid var(--greige); outline-offset: 2px; }
-.review-nav .bar { flex: 1; height: 1px; background: var(--rule); position: relative; }
-.review-nav .bar span { position: absolute; inset: 0 auto 0 0; background: var(--greige); transition: left .5s ease; }
+.review-nav button:focus-visible { outline: 1px solid var(--greige-ink); outline-offset: 2px; }
+.review-nav .bar { flex: 1; height: 1px; background: rgba(28,28,27,.2); position: relative; }
+.review-nav .bar span { position: absolute; inset: 0 auto 0 0; background: var(--greige-ink); transition: left .5s ease; }
 @media (prefers-reduced-motion: reduce) { .reviews.is-slider .review, .review-nav .bar span { transition: none; } }
 
 /* INQUIRE + FOOTER */
