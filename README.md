@@ -1,6 +1,6 @@
-# Montana Studio
+# MONTANA Studio
 
-The website for Montana Studio, a brand management studio.
+The website for MONTANA Studio, a brand management studio.
 
 It is a plain static site with no build step: `index.html`, `styles.css` and the `images/` folder.
 

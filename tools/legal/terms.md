@@ -1,4 +1,4 @@
-These Terms & Conditions (the "Terms") govern your use of this website and any services, content, or products offered by **Montana Studio** ("we," "our," "us"), owned and operated by **Montana Fisher-Shotton**, and located at **www.montanastudio.ca** (the "Site"). By accessing our website or making a purchase, you agree to be bound by these Terms and all related policies.
+These Terms & Conditions (the "Terms") govern your use of this website and any services, content, or products offered by **MONTANA Studio** ("we," "our," "us"), owned and operated by **Montana Fisher-Shotton**, and located at **www.montanastudio.ca** (the "Site"). By accessing our website or making a purchase, you agree to be bound by these Terms and all related policies.
 
 These Terms apply to all visitors, users, customers, and others who access or use the Services, whether personally or on behalf of an organization or entity.
 
@@ -8,7 +8,7 @@ By accessing our website, subscribing to a newsletter, purchasing a product, boo
 
 ## 2. Intellectual Property
 
-All content, including but not limited to logos, graphics, images, videos, text, designs, and other material, is the property of **Montana Studio** or its licensors and is protected under applicable Canadian and international copyright and trademark laws.
+All content, including but not limited to logos, graphics, images, videos, text, designs, and other material, is the property of **MONTANA Studio** or its licensors and is protected under applicable Canadian and international copyright and trademark laws.
 
 You may not reproduce, duplicate, copy, sell, resell, or exploit any portion of our Services without our express written permission.
 
@@ -58,11 +58,11 @@ We use cookies and **Google Analytics** to enhance user experience and collect a
 
 ## 9. Disclaimer & Limitation of Liability
 
-We do not guarantee specific results from use of our products or services. All content is provided on an **"as-is"** basis. While we do our best to ensure accuracy, **Montana Studio** is not liable for any direct or indirect losses resulting from the use or misuse of our content or services.
+We do not guarantee specific results from use of our products or services. All content is provided on an **"as-is"** basis. While we do our best to ensure accuracy, **MONTANA Studio** is not liable for any direct or indirect losses resulting from the use or misuse of our content or services.
 
 ## 10. Indemnification
 
-You agree to indemnify and hold harmless **Montana Studio** and **Montana Fisher-Shotton** from any claims, liabilities, losses, damages, or expenses arising from your misuse of the Site, services, or violation of these Terms.
+You agree to indemnify and hold harmless **MONTANA Studio** and **Montana Fisher-Shotton** from any claims, liabilities, losses, damages, or expenses arising from your misuse of the Site, services, or violation of these Terms.
 
 ## 11. Age Restriction
 

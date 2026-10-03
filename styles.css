@@ -175,8 +175,20 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .inquire .inner { display: grid; gap: 26px; justify-items: center; }
 .inquire h2 { font-size: clamp(42px, 5.8vw, 82px); line-height: 1.02; }
 .inquire h2 i { font-style: italic; }
-.inquire p { color: rgba(226,226,222,.75); max-width: 25rem; }
-.inquire .mail { font-style: italic; font-size: 16px; }
+.inquire .inner > p { color: rgba(226,226,222,.75); max-width: 25rem; }
+/* Inquiry form: a frosted glass panel over the photo */
+.inquiry-form { width: min(100%, 640px); margin-top: 10px; padding: clamp(28px, 4vw, 48px); display: grid; gap: 28px; text-align: left; background: rgba(226,226,222,.07); border: 1px solid rgba(226,226,222,.22); box-shadow: inset 0 1px 0 rgba(226,226,222,.18); -webkit-backdrop-filter: blur(18px) saturate(.7); backdrop-filter: blur(18px) saturate(.7); }
+.inquiry-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+@media (max-width: 600px) { .inquiry-form .row { grid-template-columns: 1fr; } }
+.inquiry-form .field { display: grid; gap: 6px; }
+.inquiry-form .field .cap { font-size: 8.5px; color: rgba(226,226,222,.7); }
+.inquiry-form input, .inquiry-form textarea { width: 100%; box-sizing: border-box; background: transparent; border: 0; border-bottom: 1px solid rgba(226,226,222,.35); border-radius: 0; color: var(--cream); font: 200 15px/1.6 var(--sans); padding: 8px 0 10px; resize: vertical; transition: border-color .25s; }
+.inquiry-form input:focus, .inquiry-form textarea:focus { outline: none; border-bottom-color: var(--cream); }
+.inquiry-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.inquiry-form .send { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; }
+.inquiry-form .btn { cursor: pointer; font-family: var(--sans); }
+.inquiry-form .btn[disabled] { opacity: .6; cursor: default; }
+.form-note { font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--cream); }
 /* FOOTER */
 .site-foot { border-top: 1px solid var(--rule); color: var(--dust); padding: clamp(70px, 8vw, 110px) var(--edge) 0; }
 .foot-top { display: grid; grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr)); gap: clamp(32px, 5vw, 80px); padding-bottom: clamp(60px, 7vw, 90px); }
@@ -207,7 +219,6 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .legal li { margin-bottom: 6px; }
 .legal strong { color: var(--cream); font-weight: 400; }
 .legal a { color: var(--cream); border-bottom: 1px solid var(--rule); }
-.enq-logo { width: min(260px, 60vw); height: auto; opacity: .9; margin-bottom: 8px; }
 
 /* Accessible but hidden heading text */
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -226,7 +237,8 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .founder .text { padding: clamp(70px, 9vw, 130px) var(--edge); display: grid; gap: 18px; align-content: center; justify-items: start; }
 .founder .cap { color: var(--dust); }
 .founder h2 { font-size: clamp(36px, 4vw, 56px); line-height: 1.05; }
-.founder .text p:not(.role) { color: var(--dust); max-width: 30rem; font-size: 15px; }
+.founder .bio { display: grid; gap: 16px; margin-top: 6px; }
+.founder .bio p { color: var(--dust); max-width: 32rem; font-size: 15px; }
 @media (max-width: 860px) { .founder { grid-template-columns: 1fr; } .founder .photo { min-height: 460px; } }
 .about-cta { background: var(--greige); color: var(--greige-ink); text-align: center; padding: clamp(70px, 8vw, 110px) var(--edge); display: grid; gap: 28px; justify-items: center; }
 .about-cta h2 { font-size: clamp(34px, 4.4vw, 60px); line-height: 1.05; }

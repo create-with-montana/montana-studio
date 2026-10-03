@@ -1,4 +1,4 @@
-At **Montana Studio**, your privacy matters. This policy outlines how personal information is collected, used, and shared when you visit or interact with our website. We are based in **Ontario, Canada**, and committed to protecting your personal data with transparency and care.
+At **MONTANA Studio**, your privacy matters. This policy outlines how personal information is collected, used, and shared when you visit or interact with our website. We are based in **Ontario, Canada**, and committed to protecting your personal data with transparency and care.
 
 ## How We Use Your Information
 
@@ -58,7 +58,7 @@ We do **not sell, trade, or share** your personal information with outside parti
 - With service providers who support our business (e.g., hosting, payment processing, email platforms)
 - With your consent, for any other third-party collaboration
 - As required by law, court orders, or legal processes
-- To protect the rights, property, or safety of **Montana Studio**, its users, or others
+- To protect the rights, property, or safety of **MONTANA Studio**, its users, or others
 
 ## Your Rights & Choices
 
@@ -84,7 +84,7 @@ We may update this privacy policy from time to time. Material changes will be cl
 
 If you have questions about this policy or how your personal information is handled, contact:
 
-**Montana**, Founder, **Montana Studio**, [montana@createwithmontana.com](mailto:montana@createwithmontana.com)
+**Montana**, Founder, **MONTANA Studio**, [montana@createwithmontana.com](mailto:montana@createwithmontana.com)
 
 ## Terms and Conditions
 

@@ -2,7 +2,7 @@ By accessing and using this website or any associated content, including but not
 
 ## 1. Assumption of Risk
 
-By using this website, you agree that you do so at your own risk. All content is provided for general informational and educational purposes only. **Montana Studio** makes no guarantees regarding the accuracy, reliability, completeness, or currency of any information presented.
+By using this website, you agree that you do so at your own risk. All content is provided for general informational and educational purposes only. **MONTANA Studio** makes no guarantees regarding the accuracy, reliability, completeness, or currency of any information presented.
 
 We are not responsible for any loss, damage, or harm resulting from your reliance on information or resources provided on this website or via our digital content. Use of this website does not constitute any form of professional advice or consultation.
 
@@ -16,7 +16,7 @@ Please consult a qualified professional before making any decisions or taking ac
 
 You are solely responsible for how you interpret and use the content we provide. While we strive to provide valuable insights and tools, any actions you take based on our content are done at your own discretion and risk.
 
-Opinions shared on this site represent individual perspectives and do not necessarily reflect the views of **Montana Studio** as a whole.
+Opinions shared on this site represent individual perspectives and do not necessarily reflect the views of **MONTANA Studio** as a whole.
 
 ## 4. Earnings Disclaimer
 
@@ -32,7 +32,7 @@ Testimonials are shared for illustrative purposes only and are not guarantees of
 
 ## 6. Affiliate Links & Third-Party Resources
 
-From time to time, **Montana Studio** may share affiliate links to tools, services, or products we genuinely use or recommend. If you click on one of these links and make a purchase, we may receive a small commission, at no additional cost to you.
+From time to time, **MONTANA Studio** may share affiliate links to tools, services, or products we genuinely use or recommend. If you click on one of these links and make a purchase, we may receive a small commission, at no additional cost to you.
 
 These recommendations do not constitute an endorsement or warranty of any kind. You acknowledge that we are not liable for any issues that may arise from your use of these third-party tools or resources.
 
@@ -42,7 +42,7 @@ Additionally, our website may contain links to external websites. We are not res
 
 All services, materials, and content provided through this website are offered on an "as is," "as available," and "without warranty" basis.
 
-To the fullest extent allowed under applicable Canadian law, **Montana Studio** disclaims all warranties, express or implied, including but not limited to:
+To the fullest extent allowed under applicable Canadian law, **MONTANA Studio** disclaims all warranties, express or implied, including but not limited to:
 
 - Merchantability
 - Fitness for a particular purpose
@@ -62,4 +62,4 @@ It is your responsibility to review this page periodically to ensure you are awa
 
 If you have questions about this Disclaimer or any aspect of our website policies, please contact:
 
-**Montana**, Founder, **Montana Studio**, [montana@createwithmontana.com](mailto:montana@createwithmontana.com)
+**Montana**, Founder, **MONTANA Studio**, [montana@createwithmontana.com](mailto:montana@createwithmontana.com)
