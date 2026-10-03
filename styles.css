@@ -37,7 +37,7 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .photo .note { position: absolute; right: 14px; bottom: 10px; font-family: var(--serif); font-style: italic; font-size: 12px; color: rgba(226,226,222,.42); }
 
 /* HERO: one photo, the left side seen through fogged glass, the right side clear */
-.hero { --seam: 46%; position: relative; isolation: isolate; overflow: hidden; min-height: min(92vh, 920px); display: grid; grid-template-rows: auto 1fr auto; background: var(--night) url(images/hero-library.jpg) center 42% / cover no-repeat; }
+.hero { --head: clamp(54px, 11.5vw, 184px); --seam: calc(50% - .22 * var(--head)); position: relative; isolation: isolate; overflow: hidden; min-height: min(92vh, 920px); display: grid; grid-template-rows: auto 1fr auto; background: var(--night) url(images/hero-library.jpg) center 42% / cover no-repeat; }
 .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(28,28,27,.35), rgba(28,28,27,0) 30%, rgba(28,28,27,.45)); }
 .fog { position: absolute; inset: 0 calc(100% - var(--seam)) 0 0; z-index: 0; background: rgba(106,93,82,.22); -webkit-backdrop-filter: blur(18px) saturate(.55) brightness(1.08); backdrop-filter: blur(18px) saturate(.55) brightness(1.08); border-right: 1px solid rgba(226,226,222,.16); }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .fog { background: rgba(106,93,82,.78); } }
@@ -54,7 +54,7 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .hero-kicker { padding-inline: var(--edge); display: grid; gap: 14px; justify-items: center; }
 .hero-kicker .cap { color: rgba(226,226,222,.75); }
 .hero-kicker .from { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(20px, 2.1vw, 28px); line-height: 1; }
-.split-head { font-family: var(--display); font-weight: 400; display: grid; font-size: clamp(54px, 11.5vw, 184px); line-height: .9; letter-spacing: -.01em; }
+.split-head { font-family: var(--display); font-weight: 400; display: grid; font-size: var(--head); line-height: .9; letter-spacing: -.01em; }
 .split-head .word { grid-area: 1 / 1; white-space: nowrap; text-align: center; }
 .split-head .fogged { color: rgba(226,226,222,.5); filter: blur(1.6px); clip-path: inset(-20% calc(100% - var(--seam)) -20% 0); }
 .split-head .clear { color: var(--cream); clip-path: inset(-20% 0 -20% var(--seam)); }
@@ -62,10 +62,9 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .hero-foot p { font-size: 11.5px; line-height: 1.95; color: rgba(226,226,222,.85); max-width: 25rem; }
 .clear-note { position: absolute; right: var(--edge); bottom: 40px; font-family: var(--serif); font-style: italic; font-size: 15px; color: rgba(226,226,222,.8); }
 @media (max-width: 760px) {
-  .hero { --seam: 50%; min-height: 0; background-position: 62% 42%; }
+  .hero { --head: 19vw; min-height: 0; background-position: 62% 42%; }
   .hero-body { padding-block: 64px 40px; }
   .hero-foot { max-width: none; padding-bottom: 48px; }
-  .split-head { font-size: 19vw; }
   .clear-note { display: none; }
 }
 
