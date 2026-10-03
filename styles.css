@@ -141,7 +141,7 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 @media (max-width: 760px) { .roles div { padding-inline: 20px; } .roles div:nth-child(2) { border-right: 0; } .roles div:nth-child(-n+2) { border-bottom: 1px solid var(--rule); } }
 .roles p { font-size: 10.5px; color: var(--dust); line-height: 1.7; }
 
-/* KIND WORDS */
+/* TESTIMONIALS */
 .kind { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); background: var(--room); position: relative; overflow: hidden; }
 @media (max-width: 860px) { .kind { grid-template-columns: 1fr; } }
 .kind .photo { min-height: 600px; background-image: linear-gradient(rgba(28,28,27,.15), rgba(28,28,27,.35)), url(images/kind-walnut.jpg); }
@@ -172,6 +172,8 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .foot-col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
 .foot-col a, .foot-col address { font-size: 13px; font-style: normal; line-height: 1.9; color: var(--dust); transition: color .2s; }
 .foot-col a:hover, .foot-base a:hover { color: var(--cream); }
+.foot-col .btn { margin-top: 22px; color: var(--cream); font-size: 9.5px; line-height: 1.4; }
+.foot-col .btn:hover { color: var(--cream); }
 .foot-base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 28px; padding: 26px 0 34px; border-top: 1px solid var(--rule); font-size: 11px; }
 .foot-base nav { display: flex; flex-wrap: wrap; gap: 26px; }
 .foot-base a { color: var(--dust); transition: color .2s; }
