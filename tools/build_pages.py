@@ -220,6 +220,38 @@ ABOUT = f'''<!doctype html>
 '''
 (REPO / 'about').mkdir(exist_ok=True); (REPO / 'about' / 'index.html').write_text(ABOUT)
 
+# Thank-you page: where the inquiry form lands after sending. Kept out of search results.
+THANKS = f'''<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thank You · MONTANA Studio</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#11100e">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+{header()}
+<main>
+  <section class="inquire thanks">
+    <div class="pane">
+      <h1 class="look"><span class="above"><span class="over">Thank</span><span class="cut dip" aria-hidden="true">Thank</span></span> <span class="cut"><i>You.</i></span></h1>
+      <span class="cap">We’ve received your inquiry</span>
+      <p>Thank you so much for reaching out. We will be in touch within 24 to 48 hours to book your consultation, and we’re looking forward to connecting with you.</p>
+      <div class="send"><a class="btn" href="/">Back to the studio</a></div>
+    </div>
+  </section>
+</main>
+{FOOTER}
+<script src="/cutout.js" defer></script>
+</body>
+</html>
+'''
+(REPO / 'thank-you').mkdir(exist_ok=True); (REPO / 'thank-you' / 'index.html').write_text(THANKS)
+
 # Homepage footer
 idx = REPO / 'index.html'
 s = idx.read_text()

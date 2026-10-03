@@ -1,5 +1,6 @@
-// Inquiry form: sends through FormSubmit without leaving the page and shows a
-// thank-you note. Without JS the form posts normally to the same address.
+// Inquiry form: sends through FormSubmit (which emails each inquiry to
+// montana@createwithmontana.com), then opens the thank-you page. Without JS the
+// form posts normally and FormSubmit redirects there itself (_next).
 (function () {
   var form = document.querySelector('.inquiry-form');
   if (!form || !window.fetch) return;
@@ -12,9 +13,9 @@
     fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
       method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form)
     }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-      .then(function () {
-        form.reset();
-        note.textContent = 'Thank you. We will be in touch within two business days.';
+      .then(function (d) {
+        if (String(d.success) !== 'true') throw new Error(d.message);
+        window.location.href = '/thank-you';
       })
       .catch(function () {
         note.textContent = 'Something went wrong. Please email montana@createwithmontana.com.';
