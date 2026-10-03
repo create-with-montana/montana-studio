@@ -132,7 +132,9 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 @media (max-width: 860px) { .studio { grid-template-columns: 1fr; } }
 .studio .text { padding: clamp(90px, 10vw, 140px) var(--edge); display: grid; gap: 24px; align-content: center; justify-items: start; }
 .studio h2 { font-size: clamp(30px, 3.2vw, 44px); line-height: 1.1; max-width: 15ch; }
-.studio .text p { color: var(--dust); max-width: 25rem; }
+.studio .text p { color: var(--dust); max-width: 27rem; }
+.studio .text .motto { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.4; color: var(--cream); }
+.studio .text .actions, .about-cta .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 32px; margin-top: 8px; }
 .studio .photo { min-height: 560px; background-image: url(images/studio-writing.jpg); background-position: center 60%; }
 .roles { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--rule); }
 .how-title { grid-column: 1 / -1; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.1; padding: clamp(50px, 6vw, 80px) var(--edge) 10px; }
@@ -206,9 +208,27 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .legal strong { color: var(--cream); font-weight: 400; }
 .legal a { color: var(--cream); border-bottom: 1px solid var(--rule); }
 .enq-logo { width: min(260px, 60vw); height: auto; opacity: .9; margin-bottom: 8px; }
-.lead-card { display: flex; gap: 16px; align-items: center; }
-.lead-card img { width: 64px; height: 80px; object-fit: cover; object-position: center 25%; filter: saturate(.85); }
-.lead-card p { font-size: 12px; color: var(--dust); line-height: 1.5; }
 
 /* Accessible but hidden heading text */
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ABOUT PAGE */
+.page-head { background: var(--night); padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+.nav a[aria-current="page"] { border-bottom: 1px solid currentColor; padding-bottom: 4px; }
+.about-intro { max-width: 1180px; margin: 0 auto; padding: clamp(80px, 10vw, 140px) var(--edge); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px clamp(40px, 7vw, 110px); align-items: start; }
+.about-intro .cap { grid-column: 1 / -1; color: var(--dust); }
+.about-intro h1 { font-size: clamp(40px, 5.2vw, 76px); line-height: 1.02; }
+.about-intro .body { display: grid; gap: 20px; color: var(--dust); font-size: 15px; }
+.about-intro .motto, .founder .role { font-family: var(--serif); font-style: italic; font-size: 19px; line-height: 1.4; color: var(--cream); }
+@media (max-width: 860px) { .about-intro { grid-template-columns: 1fr; } }
+.founder { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); background: var(--room); }
+.founder .photo { min-height: 640px; background-image: url(/images/montana.jpg); background-position: center 25%; }
+.founder .text { padding: clamp(70px, 9vw, 130px) var(--edge); display: grid; gap: 18px; align-content: center; justify-items: start; }
+.founder .cap { color: var(--dust); }
+.founder h2 { font-size: clamp(36px, 4vw, 56px); line-height: 1.05; }
+.founder .text p:not(.role) { color: var(--dust); max-width: 30rem; font-size: 15px; }
+@media (max-width: 860px) { .founder { grid-template-columns: 1fr; } .founder .photo { min-height: 460px; } }
+.about-cta { background: var(--greige); color: var(--greige-ink); text-align: center; padding: clamp(70px, 8vw, 110px) var(--edge); display: grid; gap: 28px; justify-items: center; }
+.about-cta h2 { font-size: clamp(34px, 4.4vw, 60px); line-height: 1.05; }
+.about-cta .btn { color: var(--greige-ink); background: rgba(28,28,27,.06); border-color: rgba(28,28,27,.35); box-shadow: inset 0 1px 0 rgba(255,255,255,.25); }
+.about-cta .btn:hover { background: rgba(28,28,27,.12); border-color: rgba(28,28,27,.55); }
