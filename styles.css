@@ -104,6 +104,9 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 @media (max-width: 860px) { .index .intro { position: static; } }
 .index .intro h2 { font-size: clamp(30px, 3.1vw, 42px); line-height: 1.1; }
 .index .intro p { color: var(--dust); max-width: 22rem; }
+/* Curated eyebrow: hairline rule and an italic serif label */
+.eyebrow { display: flex; align-items: center; gap: 14px; font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--greige); }
+.eyebrow::before { content: ""; width: 44px; height: 1px; background: currentColor; opacity: .6; }
 .svc { border-top: 1px solid var(--rule); padding: 34px 0 40px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 12px 40px; }
 .svc:last-child { border-bottom: 1px solid var(--rule); }
 @media (max-width: 600px) { .svc { grid-template-columns: 1fr; } }
