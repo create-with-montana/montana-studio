@@ -34,7 +34,7 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .under { display: inline-block; font-size: 9.5px; font-weight: 400; letter-spacing: .3em; text-transform: uppercase; padding-bottom: 7px; border-bottom: 1px solid currentColor; }
 .under:hover { opacity: .7; }
 /* Glass button: frosted rectangle, used for every call to action except the hero link */
-.btn { display: inline-block; font-size: 9.5px; font-weight: 400; letter-spacing: .3em; text-transform: uppercase; color: var(--cream); padding: 17px 30px 16px calc(30px + .3em); background: rgba(226,226,222,.08); border: 1px solid rgba(226,226,222,.3); box-shadow: inset 0 1px 0 rgba(226,226,222,.2); -webkit-backdrop-filter: blur(14px) saturate(.7); backdrop-filter: blur(14px) saturate(.7); transition: background .3s, border-color .3s; }
+.btn { display: inline-block; font-size: 9.5px; font-weight: 400; letter-spacing: .3em; text-transform: uppercase; color: var(--cream); padding: 11px 28px 10px calc(28px + .3em); background: rgba(226,226,222,.08); border: 1px solid rgba(226,226,222,.3); box-shadow: inset 0 1px 0 rgba(226,226,222,.2); -webkit-backdrop-filter: blur(14px) saturate(.7); backdrop-filter: blur(14px) saturate(.7); transition: background .3s, border-color .3s; }
 .btn:hover { background: rgba(226,226,222,.16); border-color: rgba(226,226,222,.5); }
 .photo { position: relative; background-color: var(--room); background-position: center; background-size: cover; background-repeat: no-repeat; max-width: 100%; }
 .photo .note { position: absolute; right: 14px; bottom: 10px; font-family: var(--serif); font-style: italic; font-size: 12px; color: rgba(226,226,222,.42); }
