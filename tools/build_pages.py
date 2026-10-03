@@ -48,8 +48,7 @@ FOOTER = '''<!-- ===== FOOTER ===== -->
     <div class="foot-col">
       <h2 class="cap">Contact</h2>
       <address>
-        <a href="mailto:montana@createwithmontana.com">montana@<wbr>createwithmontana.com</a><br>
-        Ontario, Canada
+        <a href="mailto:montana@createwithmontana.com">montana@<wbr>createwithmontana.com</a>
       </address>
       <a class="btn" href="/#inquire">Inquire</a>
     </div>
@@ -110,6 +109,46 @@ pages = [
 for slug, title, desc, src in pages:
     (REPO / slug).mkdir(exist_ok=True); (REPO / slug / 'index.html').write_text(page(slug, title, desc, (HERE / src).read_text()))
 
+# About page FAQ: written answer-first so search engines and AI assistants can quote
+# each answer on its own. The same list feeds the FAQPage structured data.
+FAQ = [
+  ('What does MONTANA Studio do?',
+   'MONTANA Studio is a brand management studio based in Ontario, Canada. Our team looks after social media management, website design and development, SEO and GEO, Shopify and e-commerce, email and campaign management, and digital presence management, including courses, lead funnels, CRMs and workflows. You work with one full team through one point of contact.'),
+  ('Who do you work with?',
+   'We work with founders, small business owners and entrepreneurs who are ready to grow and want a partner who is as invested in their business as they are. Many of our clients are service-based businesses, coaches and e-commerce brands.'),
+  ('Do you only work with businesses in Ontario?',
+   'No. The studio is based in Ontario, and we work with clients across Canada and beyond. Consultations and meetings take place online, so where you are has no bearing on the care you receive.'),
+  ('Do I need a monthly retainer?',
+   'No. There is no set retainer. Every package is fully customizable: you choose the services your business needs, and we build a plan around them, whether that is a single project or ongoing management.'),
+  ('How much do your services cost?',
+   'Pricing depends on the services you choose and the scope of the work. After your consultation, we prepare a tailored proposal with clear pricing and a timeline, so you know exactly what to expect before anything begins.'),
+  ('What is GEO, and why does it matter for my business?',
+   'GEO, or generative engine optimization, helps your business appear in answers from AI search tools such as ChatGPT, Google AI Overviews, Gemini and Perplexity. We pair it with traditional SEO through clear, well-structured content, structured data and consistent business information, so your brand can be found and recommended wherever your clients search.'),
+  ('Can you manage my social media for me?',
+   'Yes. Our social media management covers strategy, content creation, scheduling, engagement, and reporting and analytics, so your accounts stay consistent and on brand while you focus on running your business.'),
+  ('Do you build Shopify stores?',
+   'Yes. We design and build Shopify stores, migrate existing stores to Shopify, set up products and apps, and offer ongoing store management once you launch.'),
+  ('Do you offer support after my website launches?',
+   'Yes. We offer hosting and monthly care, along with ongoing SEO, GEO and content support, so your website keeps performing long after launch.'),
+  ('What happens after I send an inquiry?',
+   'We reply within two business days to book a consultation. From there we begin with discovery, a deep dive into your business, goals and ideal client, then shape a strategy, design and develop the work, and set up the systems behind it.'),
+]
+FAQ_HTML = '\n'.join(f'      <details class="qa"><summary><h3>{html.escape(q)}</h3></summary><p>{html.escape(a)}</p></details>' for q, a in FAQ)
+FAQ_LD = json.dumps({
+  '@context': 'https://schema.org',
+  '@graph': [
+    {'@type': 'AboutPage', 'url': 'https://montanastudio.ca/about', 'name': 'About MONTANA Studio',
+     'about': {'@type': 'ProfessionalService', 'name': 'MONTANA Studio', 'url': 'https://montanastudio.ca/'},
+     'mainEntity': {'@type': 'Person', 'name': 'Montana Fisher-Shotton', 'jobTitle': 'Founder & Studio Director',
+                    'image': 'https://montanastudio.ca/images/montana.jpg',
+                    'worksFor': {'@type': 'ProfessionalService', 'name': 'MONTANA Studio'}}},
+    {'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in FAQ]},
+  ]}, indent=1, ensure_ascii=False)
+
+# The homepage inquiry section, repeated at the foot of the About page
+_home = (REPO / 'index.html').read_text()
+INQUIRE = _home[_home.index('<!-- ===== INQUIRE ===== -->'):_home.index('</section>', _home.index('id="inquire"')) + len('</section>')]
+
 ABOUT = f'''<!doctype html>
 <html lang="en-CA">
 <head>
@@ -124,6 +163,9 @@ ABOUT = f'''<!doctype html>
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{FAQ_LD}
+</script>
 </head>
 <body>
 {header('/about')}
@@ -145,7 +187,7 @@ ABOUT = f'''<!doctype html>
     <div class="photo" role="img" aria-label="Montana, founder of MONTANA Studio"></div>
     <div class="text">
       <span class="cap">Meet the founder</span>
-      <h2>Mon<i>tana</i></h2>
+      <h2>Montana</h2>
       <p class="role">Founder &amp; Studio Director</p>
       <div class="bio">
         <p>Hi, I’m Montana — designer, strategist, and the heart behind MONTANA Studio. I’ve always believed that good design goes beyond how something looks — it’s about how it works, how it feels, and how it supports your bigger vision.</p>
@@ -156,13 +198,23 @@ ABOUT = f'''<!doctype html>
     </div>
   </section>
 
-  <!-- ===== ABOUT CTA ===== -->
-  <section class="about-cta">
-    <h2>Begin With <i>Clarity.</i></h2>
-    <div class="actions"><a class="btn" href="/#inquire">Inquire</a></div>
+  <!-- ===== FAQ ===== -->
+  <section class="faq" id="faq" aria-labelledby="faq-title">
+    <div class="faq-head">
+      <span class="cap">Questions</span>
+      <h2 id="faq-title">Frequently Asked <i>Questions</i></h2>
+      <p>Anything else on your mind? Send it with your inquiry below.</p>
+    </div>
+    <div class="faq-list">
+{FAQ_HTML}
+    </div>
   </section>
+
+{INQUIRE}
 </main>
 {FOOTER}
+<script src="/cutout.js" defer></script>
+<script src="/inquire.js" defer></script>
 </body>
 </html>
 '''
