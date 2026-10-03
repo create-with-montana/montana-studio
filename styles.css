@@ -1,6 +1,6 @@
-/* Fonts (self-hosted, SIL Open Font License): Aboreto for display words, Cormorant Garamond for title-case headings, Albert Sans for paragraphs */
-@font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 300 700; font-display: swap; src: url(fonts/CormorantGaramond.woff2) format("woff2"); }
-@font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 300 700; font-display: swap; src: url(fonts/CormorantGaramond-Italic.woff2) format("woff2"); }
+/* Fonts (self-hosted, SIL Open Font License): Aboreto for display words, Playfair Display for title-case headings, Albert Sans for paragraphs */
+@font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 400 900; font-display: swap; src: url(fonts/PlayfairDisplay.woff2) format("woff2"); }
+@font-face { font-family: "Playfair Display"; font-style: italic; font-weight: 400 900; font-display: swap; src: url(fonts/PlayfairDisplay-Italic.woff2) format("woff2"); }
 @font-face { font-family: "Aboreto"; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/Aboreto-400.woff2) format("woff2"); }
 @font-face { font-family: "Albert Sans"; font-style: normal; font-weight: 100 900; font-display: swap; src: url(fonts/AlbertSans.woff2) format("woff2"); }
 @font-face { font-family: "Albert Sans"; font-style: italic; font-weight: 100 900; font-display: swap; src: url(fonts/AlbertSans-Italic.woff2) format("woff2"); }
@@ -16,7 +16,7 @@
   --walnut: #6a5d52; /* Walnut */
   --greige-ink: #1c1c1b;
   --display: "Aboreto", Didot, "Times New Roman", serif; /* display words, all caps */
-  --serif: "Cormorant Garamond", Garamond, "Times New Roman", serif; /* title-case headings */
+  --serif: "Playfair Display", Didot, "Bodoni 72", "Times New Roman", serif; /* title-case headings, partial italics */
   --sans: "Albert Sans", "Helvetica Neue", Arial, sans-serif; /* paragraphs, thin */
   --edge: clamp(16px, 6vw, 96px);
   color-scheme: dark;
@@ -28,8 +28,8 @@ body { margin: 0; background: var(--night); color: var(--cream); font-family: va
 a { color: inherit; text-decoration: none; }
 a:focus-visible { outline: 1px solid var(--cream); outline-offset: 4px; }
 p { margin: 0; }
-h1, h2, h3, blockquote { margin: 0; font-family: var(--serif); font-weight: 300; text-wrap: balance; }
-h1 i, h2 i, h3 i, blockquote i { font-style: italic; }
+h1, h2, h3, blockquote { margin: 0; font-family: var(--serif); font-weight: 400; text-wrap: balance; letter-spacing: -.01em; }
+h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .cap { font-size: 9.5px; font-weight: 300; letter-spacing: .3em; text-transform: uppercase; }
 .under { display: inline-block; font-size: 9.5px; font-weight: 400; letter-spacing: .3em; text-transform: uppercase; padding-bottom: 7px; border-bottom: 1px solid currentColor; }
 .under:hover { opacity: .7; }
@@ -53,7 +53,7 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; }
 .hero-body { align-self: center; display: grid; gap: 18px; padding-block: 72px 96px; }
 .hero-kicker { padding-inline: var(--edge); display: grid; gap: 14px; max-width: calc(var(--seam) - 2vw); }
 .hero-kicker .cap { color: rgba(226,226,222,.75); }
-.hero-kicker .from { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(24px, 2.6vw, 34px); line-height: 1; }
+.hero-kicker .from { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(20px, 2.1vw, 28px); line-height: 1; }
 .split-head { font-family: var(--display); font-weight: 400; display: grid; font-size: clamp(54px, 11.5vw, 184px); line-height: .9; letter-spacing: -.01em; }
 .split-head .word { grid-area: 1 / 1; padding-left: var(--edge); white-space: nowrap; }
 .split-head .fogged { color: rgba(226,226,222,.5); filter: blur(1.6px); clip-path: inset(-20% calc(100% - var(--seam)) -20% 0); }
@@ -98,12 +98,12 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; }
 @media (max-width: 860px) { .index { grid-template-columns: 1fr; } }
 .index .intro { display: grid; gap: 22px; align-content: start; position: sticky; top: 40px; }
 @media (max-width: 860px) { .index .intro { position: static; } }
-.index .intro h2 { font-size: clamp(32px, 3.4vw, 46px); line-height: 1.08; }
+.index .intro h2 { font-size: clamp(30px, 3.1vw, 42px); line-height: 1.1; }
 .index .intro p { color: var(--dust); max-width: 22rem; }
 .svc { border-top: 1px solid var(--rule); padding: 34px 0 40px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 12px 40px; }
 .svc:last-child { border-bottom: 1px solid var(--rule); }
 @media (max-width: 600px) { .svc { grid-template-columns: 1fr; } }
-.svc h3 { font-size: clamp(26px, 2.5vw, 34px); line-height: 1.05; }
+.svc h3 { font-size: clamp(22px, 2.1vw, 28px); line-height: 1.12; }
 .svc .what { display: grid; gap: 12px; min-width: 0; }
 .svc .what p { color: var(--dust); }
 .svc .incl { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; line-height: 2.2; color: var(--cream); }
@@ -112,7 +112,7 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; }
 .studio { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); background: var(--night); }
 @media (max-width: 860px) { .studio { grid-template-columns: 1fr; } }
 .studio .text { padding: clamp(90px, 10vw, 140px) var(--edge); display: grid; gap: 24px; align-content: center; justify-items: start; }
-.studio h2 { font-size: clamp(34px, 3.6vw, 50px); line-height: 1.06; max-width: 14ch; }
+.studio h2 { font-size: clamp(30px, 3.2vw, 44px); line-height: 1.1; max-width: 15ch; }
 .studio .text p { color: var(--dust); max-width: 25rem; }
 .studio .photo { min-height: 560px; background-image: url(images/studio-writing.jpg); background-position: center 60%; }
 .seal { width: 92px; height: 92px; margin-top: 18px; }
@@ -133,14 +133,14 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; }
 .kind .vert { position: absolute; left: 50%; top: 50%; transform: translate(-100%, -50%) rotate(180deg); writing-mode: vertical-rl; font-family: var(--display); font-size: clamp(44px, 5vw, 72px); line-height: .85; color: rgba(226,226,222,.26); pointer-events: none; }
 @media (max-width: 860px) { .kind .vert { left: auto; right: 8px; top: 190px; transform: translateY(-50%) rotate(180deg); } }
 .kind .text { padding: clamp(80px, 9vw, 130px) var(--edge); display: grid; gap: 30px; align-content: center; }
-.kind blockquote { font-size: clamp(26px, 2.5vw, 34px); line-height: 1.2; max-width: 22ch; }
+.kind blockquote { font-size: clamp(22px, 2.1vw, 28px); line-height: 1.3; max-width: 24ch; }
 .kind .text p { color: var(--dust); max-width: 26rem; font-size: 10.5px; }
 .kind .sig { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--cream); }
 
 /* ENQUIRE + FOOTER */
 .enquire { min-height: clamp(460px, 56vw, 720px); background-image: linear-gradient(rgba(28,28,27,.6), rgba(28,28,27,.72)), url(images/enquire-stairs.jpg); background-position: center 55%; display: grid; place-items: center; text-align: center; padding: 100px var(--edge); }
 .enquire .inner { display: grid; gap: 26px; justify-items: center; }
-.enquire h2 { font-size: clamp(46px, 6.5vw, 90px); line-height: 1; }
+.enquire h2 { font-size: clamp(42px, 5.8vw, 82px); line-height: 1.02; }
 .enquire h2 i { font-style: italic; }
 .enquire p { color: rgba(226,226,222,.75); max-width: 25rem; }
 .enquire .mail { font-style: italic; font-size: 16px; }
