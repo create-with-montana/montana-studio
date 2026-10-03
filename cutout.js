@@ -1,28 +1,23 @@
 // Glass cutouts: paints the section photo inside the frosted letters, aligned
 // with the photo behind the glass, so the letters read as a clear window.
-// Used by the hero (CLARITY) and the inquiry headline.
+// Used by the hero (CLARITY) and the inquiry section (Clarity.).
 (function () {
   if (!CSS.supports('(background-clip: text) or (-webkit-background-clip: text)')) return;
   var sets = [
     { frame: '.hero', word: '.split-head .fogged', on: 'cutout', w: 2200, h: 1467 },       // images/hero-library.jpg
-    { frame: '.inquire', word: '.look .fogged', on: 'split', w: 1650, h: 2200, cut: true }  // images/inquire-stairs.jpg
+    { frame: '.inquire', word: '.look .cut', on: 'cutout', w: 1650, h: 2200 }  // images/inquire-stairs.jpg
   ];
 
   function align(c) {
     var frame = document.querySelector(c.frame), word = frame && frame.querySelector(c.word);
     if (!word) return;
-    var target = c.on === 'split' ? word.parentNode : word;
     var f = frame.getBoundingClientRect(), w = word.getBoundingClientRect();
     var scale = Math.max(f.width / c.w, f.height / c.h); // background-size: cover
     var iw = c.w * scale, ih = c.h * scale;
     var pos = getComputedStyle(frame).backgroundPosition.split(' ').map(parseFloat); // percentages
-    if (c.cut) { // where the glass ends, measured from the headline's left edge
-      target.classList.add(c.on); w = word.getBoundingClientRect();
-      target.style.setProperty('--cut', (frame.querySelector('.fog').getBoundingClientRect().right - w.left) + 'px');
-    }
     word.style.backgroundSize = iw + 'px ' + ih + 'px';
     word.style.backgroundPosition = ((f.width - iw) * pos[0] / 100 + f.left - w.left) + 'px ' + ((f.height - ih) * pos[1] / 100 + f.top - w.top) + 'px';
-    target.classList.add(c.on);
+    word.classList.add(c.on);
   }
 
   function all() { sets.forEach(align); }
