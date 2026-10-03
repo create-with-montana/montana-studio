@@ -158,7 +158,7 @@ ABOUT = f'''<!doctype html>
 
   <!-- ===== ABOUT CTA ===== -->
   <section class="about-cta">
-    <h2>Let Us Look After <i>It.</i></h2>
+    <h2>Begin With <i>Clarity.</i></h2>
     <div class="actions"><a class="btn" href="/#inquire">Inquire</a></div>
   </section>
 </main>
