@@ -9,8 +9,11 @@
   ];
 
   function align(c) {
-    var frame = document.querySelector(c.frame), word = frame && frame.querySelector(c.word);
-    if (!word) return;
+    var frame = document.querySelector(c.frame);
+    if (frame) frame.querySelectorAll(c.word).forEach(function (word) { paint(c, frame, word); });
+  }
+
+  function paint(c, frame, word) {
     var f = frame.getBoundingClientRect(), w = word.getBoundingClientRect();
     var scale = Math.max(f.width / c.w, f.height / c.h); // background-size: cover
     var iw = c.w * scale, ih = c.h * scale;
@@ -18,6 +21,11 @@
     word.style.backgroundSize = iw + 'px ' + ih + 'px';
     word.style.backgroundPosition = ((f.width - iw) * pos[0] / 100 + f.left - w.left) + 'px ' + ((f.height - ih) * pos[1] / 100 + f.top - w.top) + 'px';
     word.classList.add(c.on);
+    if (word.classList.contains('dip')) { // the top edge of the glass, measured from the top of the words
+      var pane = frame.querySelector('.pane').getBoundingClientRect();
+      word.parentNode.style.setProperty('--edge-y', (pane.top - w.top) + 'px');
+      word.parentNode.classList.add('split');
+    }
   }
 
   function all() { sets.forEach(align); }
