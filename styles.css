@@ -145,11 +145,11 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 
 /* TESTIMONIALS */
 .kind { background: var(--greige); color: var(--greige-ink); }
-.kind .text { max-width: 860px; margin: 0 auto; padding: clamp(80px, 10vw, 140px) var(--edge); display: grid; gap: 34px; justify-items: center; text-align: center; }
+.kind .text { max-width: 960px; margin: 0 auto; padding: clamp(56px, 6vw, 90px) var(--edge); display: grid; gap: 28px; justify-items: center; text-align: center; }
 .kind .text > .cap { color: rgba(28,28,27,.6); }
-.reviews { display: grid; gap: 70px; }
+.reviews { display: grid; gap: 56px; }
 .review { margin: 0; display: grid; gap: 26px; align-content: center; justify-items: center; }
-.kind blockquote { font-size: clamp(26px, 3vw, 40px); line-height: 1.2; max-width: 24ch; margin-inline: auto; }
+.kind blockquote { font-size: clamp(26px, 3vw, 40px); line-height: 1.2; max-width: 31ch; margin-inline: auto; }
 .kind .text p { color: rgba(28,28,27,.75); max-width: 36rem; margin-inline: auto; font-size: 14px; }
 .review figcaption { display: grid; gap: 4px; }
 .kind .sig { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--greige-ink); }
