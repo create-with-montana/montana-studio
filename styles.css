@@ -151,9 +151,26 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .kind .vert { position: absolute; left: 50%; top: 50%; transform: translate(-100%, -50%) rotate(180deg); writing-mode: vertical-rl; font-family: var(--display); font-size: clamp(44px, 5vw, 72px); line-height: .85; color: rgba(226,226,222,.26); pointer-events: none; }
 @media (max-width: 860px) { .kind .vert { left: auto; right: 8px; top: 190px; transform: translateY(-50%) rotate(180deg); } }
 .kind .text { padding: clamp(80px, 9vw, 130px) var(--edge); display: grid; gap: 30px; align-content: center; }
+.reviews { display: grid; gap: 70px; }
+.review { margin: 0; display: grid; gap: 26px; align-content: center; }
 .kind blockquote { font-size: clamp(22px, 2.1vw, 28px); line-height: 1.3; max-width: 24ch; }
-.kind .text p { color: var(--dust); max-width: 26rem; font-size: 13px; }
+.kind .text p { color: var(--dust); max-width: 28rem; font-size: 13px; }
+.review figcaption { display: grid; gap: 4px; }
 .kind .sig { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--cream); }
+.review figcaption .cap { font-size: 8.5px; color: var(--dust); }
+/* Slider (testimonials.js): reviews share one cell and cross-fade */
+.reviews.is-slider .review { grid-area: 1 / 1; opacity: 0; visibility: hidden; transform: translateY(14px); transition: opacity .6s ease, transform .7s cubic-bezier(.2,.7,.2,1), visibility 0s .6s; }
+.reviews.is-slider .review.is-on { opacity: 1; visibility: visible; transform: none; transition: opacity .6s ease .15s, transform .7s cubic-bezier(.2,.7,.2,1) .15s, visibility 0s; }
+.review-nav { display: flex; align-items: center; gap: 18px; max-width: 28rem; margin-top: 14px; }
+.review-nav button { display: grid; place-items: center; width: 34px; height: 34px; padding: 0; background: none; border: 0; color: var(--greige); cursor: pointer; }
+.review-nav svg { width: 26px; height: 10px; transition: transform .3s ease; }
+.review-nav .prev svg { transform: scaleX(-1); }
+.review-nav .next:hover svg, .review-nav .next:focus-visible svg { transform: translateX(5px); }
+.review-nav .prev:hover svg, .review-nav .prev:focus-visible svg { transform: scaleX(-1) translateX(5px); }
+.review-nav button:focus-visible { outline: 1px solid var(--greige); outline-offset: 2px; }
+.review-nav .bar { flex: 1; height: 1px; background: var(--rule); position: relative; }
+.review-nav .bar span { position: absolute; inset: 0 auto 0 0; background: var(--greige); transition: left .5s ease; }
+@media (prefers-reduced-motion: reduce) { .reviews.is-slider .review, .review-nav .bar span { transition: none; } }
 
 /* INQUIRE + FOOTER */
 .inquire { min-height: clamp(460px, 56vw, 720px); background-image: linear-gradient(rgba(28,28,27,.6), rgba(28,28,27,.72)), url(images/inquire-stairs.jpg); background-position: center 55%; display: grid; place-items: center; text-align: center; padding: 100px var(--edge); }
