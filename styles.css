@@ -113,11 +113,10 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .svc .incl { list-style: none; display: flex; flex-wrap: wrap; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; line-height: 2.2; color: var(--cream); }
 .svc .incl li + li::before { content: "·"; margin: 0 .6em; }
 .svc .incl[hidden] { display: none; }
-/* Included-items slider (services.js): one item at a time, a counter and a quiet arrow */
-.incl-slider { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 18px; row-gap: 10px; margin-top: 8px; }
-.incl-slider .count { font-size: 9px; letter-spacing: .2em; color: var(--dust); font-variant-numeric: tabular-nums; min-width: 4.4em; }
+/* Included-items slider (services.js): one item at a time and a quiet arrow */
+.incl-slider { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 18px; row-gap: 10px; margin-top: 8px; }
 .incl-slider .stage { display: grid; overflow: hidden; }
-.incl-slider .item { grid-area: 1 / 1; font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--cream); opacity: 0; transform: translateY(70%); transition: opacity .45s ease, transform .55s cubic-bezier(.2,.7,.2,1); }
+.incl-slider .item { grid-area: 1 / 1; font-size: 11px; font-weight: 300; letter-spacing: .26em; text-transform: uppercase; color: var(--cream); opacity: 0; transform: translateY(70%); transition: opacity .45s ease, transform .55s cubic-bezier(.2,.7,.2,1); }
 .incl-slider .item.is-on { opacity: 1; transform: none; }
 .incl-slider .item.is-out { opacity: 0; transform: translateY(-70%); }
 .incl-slider .next { display: grid; place-items: center; width: 34px; height: 34px; background: none; border: 0; color: var(--greige); cursor: pointer; }
