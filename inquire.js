@@ -1,6 +1,6 @@
 // Inquiry form: sends through FormSubmit (which emails each inquiry to
-// montana@createwithmontana.com), then opens the thank-you page. Without JS the
-// form posts normally and FormSubmit redirects there itself (_next).
+// montana@createwithmontana.com), then opens the thank-you page. Without JS, or
+// before the form is activated, it posts normally and FormSubmit redirects (_next).
 (function () {
   var form = document.querySelector('.inquiry-form');
   if (!form || !window.fetch) return;
@@ -18,10 +18,10 @@
         window.location.href = '/thank-you';
       })
       .catch(function (err) {
-        // Until the form is activated, FormSubmit answers with a request to click its activation email
-        note.textContent = /activat/i.test(err.message)
-          ? 'This form is waiting to be activated. Please check montana@createwithmontana.com for the activation email from FormSubmit.'
-          : 'Something went wrong. Please email montana@createwithmontana.com.';
+        // Until the form is activated, FormSubmit wants one normal (non-AJAX) send, which
+        // shows its own page and emails the activation link to montana@createwithmontana.com
+        if (/activat/i.test(err.message)) { note.textContent = 'One moment…'; form.submit(); return; }
+        note.textContent = 'Something went wrong. Please email montana@createwithmontana.com.';
       })
       .finally(function () { button.disabled = false; });
   });
