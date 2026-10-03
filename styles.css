@@ -37,8 +37,8 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .photo .note { position: absolute; right: 14px; bottom: 10px; font-family: var(--serif); font-style: italic; font-size: 12px; color: rgba(226,226,222,.42); }
 
 /* HERO: one photo, the left side seen through fogged glass, the right side clear */
-.hero { --seam: 40%; position: relative; isolation: isolate; overflow: hidden; min-height: min(92vh, 920px); display: grid; grid-template-rows: auto 1fr; background: var(--night) url(images/hero-library.jpg) center 42% / cover no-repeat; }
-.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(28,28,27,.35), rgba(28,28,27,0) 30%, rgba(28,28,27,.45)); }
+.hero { --seam: 40%; position: relative; isolation: isolate; overflow: hidden; min-height: min(92vh, 920px); display: grid; grid-template-rows: auto 1fr; background: var(--night) url(images/velvet-banquette.jpg) center 78% / cover no-repeat; }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(28,28,27,.7), rgba(28,28,27,.15) 34%, rgba(28,28,27,.2) 60%, rgba(28,28,27,.6)); }
 .fog { position: absolute; inset: 0 calc(100% - var(--seam)) 0 0; z-index: 0; background: rgba(106,93,82,.22); -webkit-backdrop-filter: blur(18px) saturate(.55) brightness(1.08); backdrop-filter: blur(18px) saturate(.55) brightness(1.08); border-right: 1px solid rgba(226,226,222,.16); }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .fog { background: rgba(106,93,82,.78); } }
 .nav, .hero-body, .clear-note { position: relative; z-index: 1; }
@@ -62,7 +62,7 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .hero-foot p { font-size: 11.5px; line-height: 1.95; color: rgba(226,226,222,.85); max-width: 25rem; }
 .clear-note { position: absolute; right: var(--edge); bottom: 40px; font-family: var(--serif); font-style: italic; font-size: 15px; color: rgba(226,226,222,.8); }
 @media (max-width: 760px) {
-  .hero { --seam: 62%; min-height: 0; background-position: 62% 42%; }
+  .hero { --seam: 62%; min-height: 0; background-size: auto 150%; background-position: 70% 95%; }
   .hero-body { padding-block: 64px 72px; }
   .split-head { font-size: 19vw; }
   .clear-note { display: none; }
@@ -87,7 +87,7 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .tile:hover { filter: brightness(1.12); }
 
 /* WORD SPLIT over image */
-.split-word { min-height: clamp(380px, 52vw, 680px); background-image: linear-gradient(rgba(28,28,27,.2), rgba(28,28,27,.55)), url(images/velvet-banquette.jpg); background-position: center 62%; display: grid; place-items: end center; padding: 0 var(--edge) clamp(40px, 6vw, 80px); }
+.split-word { min-height: clamp(380px, 52vw, 680px); background-image: linear-gradient(rgba(28,28,27,.2), rgba(28,28,27,.55)), url(images/hero-library.jpg); background-position: center 45%; display: grid; place-items: end center; padding: 0 var(--edge) clamp(40px, 6vw, 80px); }
 .split-word .inner { display: grid; grid-template-columns: auto 150px auto; align-items: center; gap: clamp(14px, 4vw, 70px); max-width: 100%; }
 .split-word .big { font-family: var(--display); font-size: clamp(44px, 7.5vw, 112px); line-height: .9; }
 .split-word .tiny { font-size: 8px; line-height: 1.6; letter-spacing: .04em; text-align: center; color: rgba(226,226,222,.85); }
