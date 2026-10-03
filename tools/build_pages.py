@@ -5,6 +5,20 @@ import re, html, json, pathlib
 REPO = pathlib.Path(__file__).resolve().parent.parent
 HERE = pathlib.Path(__file__).resolve().parent / 'legal'
 
+def header(current=''):
+    """Glass header with the full menu, shared by every page except the homepage."""
+    links = [('/#services', 'Services'), ('/#studio', 'The Studio'), ('/about', 'About'), ('/#testimonials', 'Testimonials'), ('/#inquire', 'Inquire')]
+    items = '\n'.join(f'      <li><a href="{h}"' + (' aria-current="page"' if h == current else '') + f'>{t}</a></li>' for h, t in links)
+    return f'''<header class="glass-head">
+  <div class="nav">
+    <a class="wordmark" href="/"><img src="/images/logo-light.png" alt="MONTANA Studio"></a>
+    <ul>
+{items}
+    </ul>
+    <span class="menu">Menu</span>
+  </div>
+</header>'''
+
 FOOTER = '''<!-- ===== FOOTER ===== -->
 <footer class="site-foot">
   <div class="foot-top">
@@ -78,10 +92,7 @@ def page(slug, title, desc, body_md):
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body class="legal-page">
-<header class="legal-bar">
-  <a href="/" class="foot-logo"><img src="/images/logo-light.png" alt="MONTANA Studio" width="150" height="40"></a>
-  <a class="under" href="/">Back to the studio</a>
-</header>
+{header()}
 <main class="legal">
   <h1>{title}</h1>
 {md(body_md)}
@@ -115,19 +126,7 @@ ABOUT = f'''<!doctype html>
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-<header class="page-head">
-  <div class="nav">
-    <a class="wordmark" href="/"><img src="/images/logo-light.png" alt="MONTANA Studio"></a>
-    <ul>
-      <li><a href="/#services">Services</a></li>
-      <li><a href="/#studio">The Studio</a></li>
-      <li><a href="/about" aria-current="page">About</a></li>
-      <li><a href="/#testimonials">Testimonials</a></li>
-      <li><a href="/#inquire">Inquire</a></li>
-    </ul>
-    <span class="menu">Menu</span>
-  </div>
-</header>
+{header('/about')}
 <main>
   <!-- ===== ABOUT THE STUDIO ===== -->
   <section class="about-intro">
