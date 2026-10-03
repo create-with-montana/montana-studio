@@ -21,11 +21,6 @@
     word.style.backgroundSize = iw + 'px ' + ih + 'px';
     word.style.backgroundPosition = ((f.width - iw) * pos[0] / 100 + f.left - w.left) + 'px ' + ((f.height - ih) * pos[1] / 100 + f.top - w.top) + 'px';
     word.classList.add(c.on);
-    if (word.classList.contains('dip')) { // the top edge of the glass, measured from the top of the words
-      var pane = frame.querySelector('.pane').getBoundingClientRect();
-      word.parentNode.style.setProperty('--edge-y', (pane.top - w.top) + 'px');
-      word.parentNode.classList.add('split');
-    }
   }
 
   function all() { sets.forEach(align); }
