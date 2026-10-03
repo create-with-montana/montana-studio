@@ -22,7 +22,8 @@
 </head>
 <body>
 <!-- ===== HERO ===== -->
-<header class="hero photo" id="top">
+<header class="hero" id="top">
+  <div class="fog" aria-hidden="true"></div>
   <div class="nav">
     <a class="wordmark" href="#top"><img src="images/logo-light.png" alt="Montana Studio"></a>
     <ul>
@@ -33,11 +34,15 @@
     </ul>
     <span class="menu">Menu</span>
   </div>
-  <div class="hero-text">
-    <span class="cap">Brand management studio.</span>
-    <h1>Brands, kept<br>beautifully.</h1>
-    <a class="under" href="#services">Explore the services</a>
+  <div class="hero-body">
+    <p class="hero-kicker"><span class="cap">Brand management studio</span><span class="from">From the fog, to</span></p>
+    <h1 class="split-head"><span class="visually-hidden">Clarity.</span><span class="word fogged" aria-hidden="true">Clarity.</span><span class="word clear" aria-hidden="true">Clarity.</span></h1>
+    <div class="hero-foot">
+      <p>Most founders can feel their brand could be more. They just can't see it clearly from inside the business. We clear the fog, then a full team looks after your social, website, store and systems so every part of your brand reads the way it should.</p>
+      <a class="under" href="#services">See how we bring clarity</a>
+    </div>
   </div>
+  <span class="clear-note" aria-hidden="true">Clear, considered, kept.</span>
 </header>
 
 <main>
@@ -45,7 +50,7 @@
 <!-- ===== STATEMENT ===== -->
 <section class="statement" id="about">
   <div class="statement-inner">
-    <p class="lead">We <b>look after</b> the brands of founders who would <i>rather be building</i> the business. Social, web, commerce and the systems underneath, handled by <b>one studio</b> and <i>a full team.</i></p>
+    <p class="lead">We bring <b>clarity</b> to the brands of founders who would <i>rather be building</i> the business. Social, web, commerce and the systems underneath, handled by <b>one studio</b> and <i>a full team.</i></p>
     <div class="cols">
       <p>Most founders end up managing a handful of freelancers, a dozen logins and a list that never gets shorter. Montana Studio replaces all of it with one team that knows your brand and keeps every part of it consistent.</p>
       <p>Behind each client is a dedicated studio lead and the specialists the work calls for: content, design, development and operations. You will always know what was done, and what comes next.</p>
@@ -110,7 +115,7 @@
     <a class="under" href="#enquire">Meet the team</a>
     <svg class="seal" viewBox="0 0 100 100" aria-hidden="true">
       <defs><path id="ring" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0"/></defs>
-      <circle cx="50" cy="50" r="47" fill="none" stroke="#34302a"/>
+      <circle cx="50" cy="50" r="47" fill="none" stroke="#3d3a36"/>
       <text><textPath href="#ring">Montana Studio · Brand Management ·</textPath></text>
       <text class="m" x="50" y="58" text-anchor="middle">M</text>
     </svg>
