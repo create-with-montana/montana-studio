@@ -74,7 +74,7 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 }
 
 /* STATEMENT (greige band) */
-.statement { background: var(--greige); color: var(--greige-ink); padding: clamp(110px, 16vw, 220px) var(--edge); }
+.statement { background: var(--greige); color: var(--greige-ink); padding: clamp(80px, 10vw, 150px) var(--edge); }
 .statement-inner { max-width: 720px; margin-inline: auto; display: grid; gap: 36px; }
 .statement .lead { font-family: var(--sans); font-weight: 200; font-size: clamp(18px, 2vw, 23px); line-height: 1.55; }
 .statement .lead i { font-style: italic; }
@@ -82,7 +82,7 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 @media (max-width: 600px) { .statement .cols { grid-template-columns: 1fr; gap: 16px; } }
 
 /* FILED TILES */
-.filed { background: var(--night); padding: clamp(90px, 11vw, 150px) var(--edge) clamp(110px, 13vw, 170px); }
+.filed { background: var(--night); padding: clamp(56px, 6vw, 90px) var(--edge); }
 .filed .row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; max-width: 1180px; margin: 0 auto; }
 @media (max-width: 900px) { .filed .row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 480px) { .filed .row { grid-template-columns: 1fr; } }
@@ -98,7 +98,7 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 @media (max-width: 800px) { .split-word .inner { grid-template-columns: 1fr; justify-items: center; gap: 6px; } }
 
 /* SERVICES INDEX */
-.index { background: var(--room); padding: clamp(110px, 13vw, 180px) var(--edge); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(40px, 7vw, 120px); align-items: start; }
+.index { background: var(--room); padding: clamp(76px, 8vw, 120px) var(--edge); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(40px, 7vw, 120px); align-items: start; }
 @media (max-width: 860px) { .index { grid-template-columns: 1fr; } }
 .index .intro { display: grid; gap: 22px; align-content: start; position: sticky; top: 40px; }
 @media (max-width: 860px) { .index .intro { position: static; } }
@@ -134,9 +134,6 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .studio h2 { font-size: clamp(30px, 3.2vw, 44px); line-height: 1.1; max-width: 15ch; }
 .studio .text p { color: var(--dust); max-width: 25rem; }
 .studio .photo { min-height: 560px; background-image: url(images/studio-writing.jpg); background-position: center 60%; }
-.seal { width: 92px; height: 92px; margin-top: 18px; }
-.seal text { font-family: var(--sans); font-size: 6.6px; letter-spacing: 2.4px; text-transform: uppercase; fill: var(--dust); }
-.seal .m { font-family: var(--display); font-size: 24px; letter-spacing: 0; fill: var(--cream); }
 .roles { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--rule); }
 @media (max-width: 760px) { .roles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .roles div { padding: 30px var(--edge) 34px; border-right: 1px solid var(--rule); display: grid; gap: 8px; align-content: start; }
