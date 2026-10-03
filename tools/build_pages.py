@@ -5,13 +5,37 @@ import re, html, json, pathlib
 REPO = pathlib.Path(__file__).resolve().parent.parent
 HERE = pathlib.Path(__file__).resolve().parent / 'legal'
 
+def social(title, desc, path, kind='website'):
+    """Open Graph, Twitter and robots tags shared by the generated pages."""
+    url = 'https://montanastudio.ca' + path
+    return f'''<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta property="og:type" content="{kind}">
+<meta property="og:site_name" content="MONTANA Studio">
+<meta property="og:locale" content="en_CA">
+<meta property="og:url" content="{url}">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{desc}">
+<meta property="og:image" content="https://montanastudio.ca/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{desc}">
+<meta name="twitter:image" content="https://montanastudio.ca/images/og.jpg">'''
+
+def crumbs(name, path):
+    """BreadcrumbList structured data: Home > page."""
+    return json.dumps({'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
+        {'@type': 'ListItem', 'position': 1, 'name': 'MONTANA Studio', 'item': 'https://montanastudio.ca/'},
+        {'@type': 'ListItem', 'position': 2, 'name': name, 'item': 'https://montanastudio.ca' + path}]}, ensure_ascii=False)
+
 def header(current=''):
     """Glass header with the full menu, shared by every page except the homepage."""
     links = [('/#services', 'Services'), ('/#studio', 'The Studio'), ('/about', 'About'), ('/#testimonials', 'Testimonials'), ('/#inquire', 'Inquire')]
     items = '\n'.join(f'      <li><a href="{h}"' + (' aria-current="page"' if h == current else '') + f'>{t}</a></li>' for h, t in links)
     return f'''<header class="glass-head">
   <div class="nav">
-    <a class="wordmark" href="/"><img src="/images/logo-light.png" alt="MONTANA Studio"></a>
+    <a class="wordmark" href="/"><img src="/images/logo-light.png" alt="MONTANA Studio" width="148" height="30"></a>
     <ul>
 {items}
     </ul>
@@ -23,7 +47,7 @@ FOOTER = '''<!-- ===== FOOTER ===== -->
 <footer class="site-foot">
   <div class="foot-top">
     <div class="foot-brand">
-      <a href="/" class="foot-logo"><img src="/images/logo-light.png" alt="MONTANA Studio" width="150" height="40"></a>
+      <a href="/" class="foot-logo"><img src="/images/logo-light.png" alt="MONTANA Studio" width="148" height="30"></a>
       <p>MONTANA Studio is a brand management studio based in Ontario, Canada. Our team looks after social media, website design and development, SEO and GEO, Shopify and e-commerce, email marketing and the systems behind them, for founders across Canada and beyond.</p>
     </div>
     <nav class="foot-col" aria-label="Services">
@@ -86,6 +110,8 @@ def page(slug, title, desc, body_md):
 <meta name="description" content="{desc}">
 <meta name="theme-color" content="#11100e">
 <link rel="canonical" href="https://montanastudio.ca/{slug}">
+{social(f"{title} · MONTANA Studio", desc, "/" + slug)}
+<script type="application/ld+json">{crumbs(html.unescape(title), "/" + slug)}</script>
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/styles.css">
@@ -137,11 +163,17 @@ FAQ_HTML = '\n'.join(f'      <details class="qa"><summary><h3>{html.escape(q)}</
 FAQ_LD = json.dumps({
   '@context': 'https://schema.org',
   '@graph': [
-    {'@type': 'AboutPage', 'url': 'https://montanastudio.ca/about', 'name': 'About MONTANA Studio',
-     'about': {'@type': 'ProfessionalService', 'name': 'MONTANA Studio', 'url': 'https://montanastudio.ca/'},
-     'mainEntity': {'@type': 'Person', 'name': 'Montana Fisher-Shotton', 'jobTitle': 'Founder & Studio Director',
-                    'image': 'https://montanastudio.ca/images/montana.jpg',
-                    'worksFor': {'@type': 'ProfessionalService', 'name': 'MONTANA Studio'}}},
+    {'@type': 'AboutPage', '@id': 'https://montanastudio.ca/about#webpage', 'url': 'https://montanastudio.ca/about', 'name': 'About MONTANA Studio',
+     'inLanguage': 'en-CA', 'isPartOf': {'@id': 'https://montanastudio.ca/#website'},
+     'about': {'@id': 'https://montanastudio.ca/#studio-org'}, 'mainEntity': {'@id': 'https://montanastudio.ca/about#montana'}},
+    {'@type': 'Person', '@id': 'https://montanastudio.ca/about#montana', 'name': 'Montana Fisher-Shotton', 'givenName': 'Montana',
+     'jobTitle': 'Founder & Studio Director', 'url': 'https://montanastudio.ca/about', 'image': 'https://montanastudio.ca/images/montana.jpg',
+     'description': 'Designer, strategist and founder of MONTANA Studio, with a background as a Director of Operations building systems and structure for growing businesses.',
+     'knowsAbout': ['Brand strategy', 'Website design', 'Business operations', 'Business systems', 'Project management', 'Client experience'],
+     'worksFor': {'@type': 'ProfessionalService', '@id': 'https://montanastudio.ca/#studio-org', 'name': 'MONTANA Studio', 'url': 'https://montanastudio.ca/'}},
+    {'@type': 'BreadcrumbList', 'itemListElement': [
+     {'@type': 'ListItem', 'position': 1, 'name': 'MONTANA Studio', 'item': 'https://montanastudio.ca/'},
+     {'@type': 'ListItem', 'position': 2, 'name': 'About', 'item': 'https://montanastudio.ca/about'}]},
     {'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in FAQ]},
   ]}, indent=1, ensure_ascii=False)
 
@@ -154,12 +186,11 @@ ABOUT = f'''<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>About · MONTANA Studio</title>
-<meta name="description" content="MONTANA Studio is a boutique business studio in Ontario, Canada, helping founders build businesses that are beautiful, efficient and built to scale, across strategy, operations, systems and brand.">
+<title>About MONTANA Studio · Founder Montana Fisher-Shotton</title>
+<meta name="description" content="About MONTANA Studio, a brand management studio in Ontario, Canada founded by Montana Fisher-Shotton. Strategy, operations, systems and brand for founders, plus answers to common questions.">
 <meta name="theme-color" content="#11100e">
 <link rel="canonical" href="https://montanastudio.ca/about">
-<meta property="og:title" content="About · MONTANA Studio">
-<meta property="og:image" content="/images/og.jpg">
+{social("About MONTANA Studio · Founder Montana Fisher-Shotton", "About MONTANA Studio, a brand management studio in Ontario, Canada founded by Montana Fisher-Shotton. Strategy, operations, systems and brand for founders, plus answers to common questions.", "/about", "profile")}
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/styles.css">
@@ -258,4 +289,67 @@ s = idx.read_text()
 a = s.index('<!-- ===== FOOTER ===== -->'); b = s.index('</footer>') + len('</footer>')
 s = s[:a] + FOOTER + s[b:]
 idx.write_text(s)
+
+# Crawl files: sitemap, robots (welcomes search and AI crawlers) and llms.txt (a plain summary for AI assistants)
+import datetime
+today = datetime.date.today().isoformat()
+urls = [('/', '1.0'), ('/about', '0.8'), ('/privacy', '0.3'), ('/terms-and-conditions', '0.3'), ('/disclaimers', '0.3')]
+(REPO / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    + ''.join(f'  <url><loc>https://montanastudio.ca{u}</loc><lastmod>{today}</lastmod><priority>{p}</priority></url>\n' for u, p in urls) + '</urlset>\n')
+(REPO / 'robots.txt').write_text('''# MONTANA Studio: search engines and AI assistants are welcome
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://montanastudio.ca/sitemap.xml
+''')
+(REPO / 'llms.txt').write_text('''# MONTANA Studio
+
+> MONTANA Studio is a brand management studio based in Ontario, Canada, founded by Montana Fisher-Shotton. One full team, through one point of contact, looks after social media management, website design and development, SEO and GEO, Shopify and e-commerce, email and campaign management, and digital presence management for founders and small businesses across Canada and beyond.
+
+- Website: https://montanastudio.ca/
+- Email: montana@createwithmontana.com
+- Location: Ontario, Canada (works with clients across Canada and internationally, online)
+- Pricing: customized; project-based work or monthly retainers, quoted after a consultation
+- Response time: within 24 to 48 hours to book a consultation
+
+## Services
+
+- [Social Media Management](https://montanastudio.ca/#s-social): strategy, content creation, scheduling, engagement, reporting and analytics
+- [Website Design & Development](https://montanastudio.ca/#s-web): design, development, hosting and monthly care
+- [SEO & GEO](https://montanastudio.ca/#s-seo): technical SEO, content, local search, AI search visibility, reporting
+- [E-Commerce & Shopify](https://montanastudio.ca/#s-shop): Shopify builds, migrations, products, apps, store management
+- [Email & Campaign Management](https://montanastudio.ca/#s-email): strategy, copy, design, automations, reporting
+- [Digital Presence Management](https://montanastudio.ca/#s-systems): courses, lead funnels, CRMs, workflows, integrations
+
+## Pages
+
+- [About and FAQ](https://montanastudio.ca/about): the studio, founder Montana Fisher-Shotton, and answers to common questions
+- [How it works](https://montanastudio.ca/#studio): discovery, strategy, design and development, systems and optimization
+- [Testimonials](https://montanastudio.ca/#testimonials)
+- [Inquire](https://montanastudio.ca/#inquire)
+''')
 print('ok')

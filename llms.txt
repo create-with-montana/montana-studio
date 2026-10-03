@@ -1,0 +1,25 @@
+# MONTANA Studio
+
+> MONTANA Studio is a brand management studio based in Ontario, Canada, founded by Montana Fisher-Shotton. One full team, through one point of contact, looks after social media management, website design and development, SEO and GEO, Shopify and e-commerce, email and campaign management, and digital presence management for founders and small businesses across Canada and beyond.
+
+- Website: https://montanastudio.ca/
+- Email: montana@createwithmontana.com
+- Location: Ontario, Canada (works with clients across Canada and internationally, online)
+- Pricing: customized; project-based work or monthly retainers, quoted after a consultation
+- Response time: within 24 to 48 hours to book a consultation
+
+## Services
+
+- [Social Media Management](https://montanastudio.ca/#s-social): strategy, content creation, scheduling, engagement, reporting and analytics
+- [Website Design & Development](https://montanastudio.ca/#s-web): design, development, hosting and monthly care
+- [SEO & GEO](https://montanastudio.ca/#s-seo): technical SEO, content, local search, AI search visibility, reporting
+- [E-Commerce & Shopify](https://montanastudio.ca/#s-shop): Shopify builds, migrations, products, apps, store management
+- [Email & Campaign Management](https://montanastudio.ca/#s-email): strategy, copy, design, automations, reporting
+- [Digital Presence Management](https://montanastudio.ca/#s-systems): courses, lead funnels, CRMs, workflows, integrations
+
+## Pages
+
+- [About and FAQ](https://montanastudio.ca/about): the studio, founder Montana Fisher-Shotton, and answers to common questions
+- [How it works](https://montanastudio.ca/#studio): discovery, strategy, design and development, systems and optimization
+- [Testimonials](https://montanastudio.ca/#testimonials)
+- [Inquire](https://montanastudio.ca/#inquire)
