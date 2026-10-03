@@ -83,12 +83,11 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 
 /* FILED TILES */
 .filed { background: var(--night); padding: clamp(90px, 11vw, 150px) var(--edge) clamp(110px, 13vw, 170px); }
-.filed .row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; max-width: 1180px; margin: 0 auto; }
+.filed .row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; max-width: 1180px; margin: 0 auto; }
 @media (max-width: 900px) { .filed .row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 480px) { .filed .row { grid-template-columns: 1fr; } }
-.tile { aspect-ratio: 2 / 3; display: grid; align-content: end; justify-items: center; text-align: center; padding: 0 16px 34px; background-image: linear-gradient(transparent 40%, rgba(28,28,27,.78)), var(--img); }
-.tile .cap { font-size: 7.5px; color: rgba(226,226,222,.7); margin-bottom: 10px; }
-.tile h3 { font-family: var(--display); font-weight: 400; font-size: clamp(16px, 1.55vw, 20px); line-height: 1.15; }
+.tile { aspect-ratio: 4 / 5; display: grid; align-content: end; justify-items: center; text-align: center; padding: 0 16px 34px; background-image: linear-gradient(transparent 40%, rgba(28,28,27,.78)), var(--img); }
+.tile h3 { font-family: var(--display); font-weight: 400; font-size: clamp(16px, 1.75vw, 22px); line-height: 1.15; }
 .tile:hover { filter: brightness(1.12); }
 
 /* WORD SPLIT over image */
