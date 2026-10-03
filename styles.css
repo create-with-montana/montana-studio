@@ -72,14 +72,11 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 
 /* STATEMENT (greige band) */
 .statement { background: var(--greige); color: var(--greige-ink); padding: clamp(110px, 16vw, 220px) var(--edge); }
-.statement-inner { max-width: 1040px; margin-inline: auto; display: grid; gap: 40px; justify-items: center; text-align: center; }
-.statement .lead { font-family: var(--sans); font-weight: 200; font-size: clamp(24px, 3vw, 38px); line-height: 1.3; max-width: 760px; text-wrap: balance; }
+.statement-inner { max-width: 720px; margin-inline: auto; display: grid; gap: 36px; }
+.statement .lead { font-family: var(--sans); font-weight: 200; font-size: clamp(18px, 2vw, 23px); line-height: 1.55; }
 .statement .lead i { font-style: italic; }
-.statement .offer { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 0; font-size: 11px; font-weight: 300; letter-spacing: .26em; text-transform: uppercase; }
-.statement .offer li { padding: 0 calc(22px - .26em) 0 22px; } /* offsets the trailing letter-spacing so each item centres */
-.statement .offer li + li { border-left: 1px solid rgba(28,28,27,.35); }
-.statement .note { max-width: 520px; font-size: 15px; line-height: 1.85; color: rgba(28,28,27,.8); }
-@media (max-width: 1100px) { .statement .offer { flex-direction: column; } .statement .offer li + li { border-left: 0; } }
+.statement .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; font-size: 13px; line-height: 1.9; color: rgba(28,28,27,.78); }
+@media (max-width: 600px) { .statement .cols { grid-template-columns: 1fr; gap: 16px; } }
 
 /* FILED TILES */
 .filed { background: var(--night); padding: clamp(90px, 11vw, 150px) var(--edge) clamp(110px, 13vw, 170px); }
