@@ -55,8 +55,10 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .hero-kicker .cap { color: rgba(226,226,222,.75); }
 .hero-kicker .from { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(20px, 2.1vw, 28px); line-height: 1; }
 .split-head { font-family: var(--display); font-weight: 400; display: grid; font-size: var(--head); line-height: .9; letter-spacing: -.01em; }
-.split-head .word { grid-area: 1 / 1; white-space: nowrap; text-align: center; padding-left: .44em; } /* shifts the word so the CLA|RITY gap sits on the centre seam */
+.split-head .word { grid-area: 1 / 1; white-space: nowrap; text-align: center; }
 .split-head .fogged { color: rgba(226,226,222,.5); filter: blur(1.6px); clip-path: inset(-20% calc(100% - var(--seam)) -20% 0); }
+/* Cutout: hero.js lines the photo up behind the letters, so CLA reads as a window through the glass */
+.split-head .fogged.cutout { color: transparent; filter: none; background-image: url(images/hero-library.jpg); background-repeat: no-repeat; -webkit-background-clip: text; background-clip: text; }
 .split-head .clear { color: var(--cream); clip-path: inset(-20% 0 -20% var(--seam)); }
 .hero-foot { padding: 0 var(--edge) 56px; display: grid; gap: 22px; justify-items: start; max-width: calc(var(--seam) + 2vw); }
 .hero-foot p { font-size: 11.5px; line-height: 1.95; color: rgba(226,226,222,.85); max-width: 25rem; }
