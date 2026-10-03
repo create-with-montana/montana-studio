@@ -21,3 +21,7 @@ The site is deployed with Vercel. Import this repository in Vercel and keep the 
 - Colours and fonts are set as variables at the top of `styles.css`. Aboreto is used for big display words (it only has capitals), Playfair Display for title-case headings (with partial italics) and Albert Sans (thin) for paragraphs, all self-hosted in `fonts/` (SIL Open Font License).
 - Each homepage section is a commented block in both `index.html` and `styles.css`, so it can be refined one section at a time.
 - Photos live in `images/`. Keep the long edge at 2200px or less.
+
+## Footer, About and legal pages
+
+The footer is shared by every page. Edit it (or the About page, or the legal text in `tools/legal/`) in `tools/build_pages.py`, then run `python3 tools/build_pages.py` to regenerate `index.html`'s footer, `about/`, `privacy/`, `terms-and-conditions/` and `disclaimers/`.
