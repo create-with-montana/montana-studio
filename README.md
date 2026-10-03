@@ -18,6 +18,6 @@ The site is deployed with Vercel. Import this repository in Vercel and keep the 
 
 ## Editing
 
-- Colours and fonts are set as variables at the top of `styles.css`. Headings use Aboreto and paragraphs use thin Albert Sans, both self-hosted in `fonts/` (SIL Open Font License).
+- Colours and fonts are set as variables at the top of `styles.css`. Aboreto is used for big display words (it only has capitals), Cormorant Garamond for title-case headings and Albert Sans (thin) for paragraphs, all self-hosted in `fonts/` (SIL Open Font License).
 - Each homepage section is a commented block in both `index.html` and `styles.css`, so it can be refined one section at a time.
 - Photos live in `images/`. Keep the long edge at 2200px or less.
