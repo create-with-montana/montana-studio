@@ -14,11 +14,14 @@
       method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form)
     }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (d) {
-        if (String(d.success) !== 'true') throw new Error(d.message);
+        if (String(d.success) !== 'true') throw new Error(d.message || '');
         window.location.href = '/thank-you';
       })
-      .catch(function () {
-        note.textContent = 'Something went wrong. Please email montana@createwithmontana.com.';
+      .catch(function (err) {
+        // Until the form is activated, FormSubmit answers with a request to click its activation email
+        note.textContent = /activat/i.test(err.message)
+          ? 'This form is waiting to be activated. Please check montana@createwithmontana.com for the activation email from FormSubmit.'
+          : 'Something went wrong. Please email montana@createwithmontana.com.';
       })
       .finally(function () { button.disabled = false; });
   });
