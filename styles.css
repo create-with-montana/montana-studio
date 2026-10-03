@@ -91,7 +91,7 @@ h1 i, h2 i, h3 i, blockquote i { font-style: italic; letter-spacing: 0; }
 .tile:hover { filter: brightness(1.12); }
 
 /* WORD SPLIT over image */
-.split-word { min-height: clamp(380px, 52vw, 680px); background-image: linear-gradient(rgba(28,28,27,.2), rgba(28,28,27,.55)), url(images/velvet-banquette.jpg); background-position: center 62%; display: grid; place-items: end center; padding: 0 var(--edge) clamp(40px, 6vw, 80px); }
+.split-word { min-height: clamp(380px, 52vw, 680px); background-image: linear-gradient(rgba(28,28,27,.2), rgba(28,28,27,.55)), url(images/interlude-car.jpg); background-position: center 60%; display: grid; place-items: end center; padding: 0 var(--edge) clamp(40px, 6vw, 80px); }
 .split-word .inner { display: grid; grid-template-columns: auto 150px auto; align-items: center; gap: clamp(14px, 4vw, 70px); max-width: 100%; }
 .split-word .big { font-family: var(--display); font-size: clamp(44px, 7.5vw, 112px); line-height: .9; }
 .split-word .tiny { font-size: 8px; line-height: 1.6; letter-spacing: .04em; text-align: center; color: rgba(226,226,222,.85); }
