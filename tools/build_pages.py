@@ -39,7 +39,7 @@ def header(current=''):
     <ul>
 {items}
     </ul>
-    <span class="menu">Menu</span>
+    <button class="menu" type="button">Menu</button>
   </div>
 </header>'''
 
@@ -69,10 +69,10 @@ FOOTER = '''<!-- ===== FOOTER ===== -->
         <li><a href="/#testimonials">Testimonials</a></li>
       </ul>
     </nav>
-    <div class="foot-col">
+    <div class="foot-col foot-contact">
       <h2 class="cap">Contact</h2>
       <address>
-        <a href="mailto:montana@createwithmontana.com">montana@<wbr>createwithmontana.com</a>
+        <a href="mailto:montana@createwithmontana.com">montana@createwithmontana.com</a>
       </address>
       <a class="btn" href="/#inquire">Inquire</a>
     </div>
@@ -123,6 +123,7 @@ def page(slug, title, desc, body_md):
 {md(body_md)}
 </main>
 {FOOTER}
+<script src="/menu.js" defer></script>
 </body>
 </html>
 '''
@@ -244,6 +245,7 @@ ABOUT = f'''<!doctype html>
 {INQUIRE}
 </main>
 {FOOTER}
+<script src="/menu.js" defer></script>
 <script src="/cutout.js" defer></script>
 <script src="/inquire.js" defer></script>
 </body>
@@ -277,6 +279,7 @@ THANKS = f'''<!doctype html>
   </section>
 </main>
 {FOOTER}
+<script src="/menu.js" defer></script>
 <script src="/cutout.js" defer></script>
 </body>
 </html>
